@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 final class QuotedPrintableTest extends TestCase
 {
     /**
-     * @dataProvider getOK
+     * @dataProvider getValid
      *
      * @param string $test
      */
@@ -46,18 +46,30 @@ final class QuotedPrintableTest extends TestCase
     }
 
     /**
+     * @dataProvider getValid
+     *
+     * @param string $test
+     */
+    public function testOKNoExceptions(string $text) : void
+    {
+        $quotedPrintable = new QuotedPrintable();
+
+        static::assertTrue($quotedPrintable->validateNoExceptions($text));
+    }
+
+    /**
      * @dataProvider getInvalid
      *
      * @param string $test
      */
-    public function testValidateNoExceptions(string $text) : void
+    public function testInvalidNoExceptions(string $text) : void
     {
         $quotedPrintable = new QuotedPrintable();
 
         static::assertFalse($quotedPrintable->validateNoExceptions($text));
     }
 
-    public static function getOK() : array
+    public static function getValid() : array
     {
         return [
             [
