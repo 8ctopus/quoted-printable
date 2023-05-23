@@ -63,7 +63,7 @@ class QuotedPrintable
      */
     public function validate(string $text) : self
     {
-        $lines = explode("\n", $text);
+        $lines = explode("\r\n", $text);
 
         // go through each line
         foreach ($lines as $line) {
