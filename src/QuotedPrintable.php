@@ -65,9 +65,11 @@ class QuotedPrintable
      *
      * @param  string $text
      *
-     * @return bool
+     * @return void
+     *
+     * @throws QuotedPrintableException
      */
-    public function validate(string $text) : bool
+    public function validate(string $text) : void
     {
         $lines = explode("\n", $text);
 
@@ -80,26 +82,23 @@ class QuotedPrintable
             }
 
             if ($length > 76) {
-                echo 'line too long' . PHP_EOL;
-                return false;
+                throw new QuotedPrintableException("line too long - {$length}");
             }
 
             // check that line only contains valid characters
             for ($i = 0; $i < $length - 1; ++$i) {
                 if (!in_array($line[$i], $this->validInLine, true)) {
-                    $char = $line[$length -1];
+                    $char = $line[$i];
                     $hex = ord($char);
-                    echo "invalid character '{$char}' {$hex}" . PHP_EOL;
-                    return false;
+                    throw new QuotedPrintableException("invalid character '{$char}' {$hex}");
                 }
             }
 
-            // check end of line characters
+            // check end of line characters (spaces and tabs are not allowed)
             if (!in_array($line[$length -1], $this->validEndOfLine, true)) {
                 $char = $line[$length -1];
                 $hex = ord($char);
-                echo "invalid character '{$char}' {$hex}" . PHP_EOL;
-                return false;
+                throw new QuotedPrintableException("invalid character '{$char}' {$hex}");
             }
 
             // check that = is followed by 2 hexadecimal digits in uppercase
@@ -108,11 +107,26 @@ class QuotedPrintable
                     $hex = substr($line, $i, 3);
 
                     if (preg_match('/=[0-9A-F]{2}/', $hex) !== 1) {
-                        echo "invalid hex sequence '{$hex}'" . PHP_EOL;
-                        return false;
+                        throw new QuotedPrintableException("invalid hex sequence '{$hex}'");
                     }
                 }
             }
+        }
+    }
+
+    /**
+     * Check if text is valid quoted printable
+     *
+     * @param  string $text
+     *
+     * @return bool
+     */
+    public function validateNoExceptions(string $text) : bool
+    {
+        try {
+            $this->validate($text);
+        } catch (QuotedPrintableException) {
+            return false;
         }
 
         return true;

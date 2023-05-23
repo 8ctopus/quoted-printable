@@ -15,4 +15,4 @@ s te fabriquent pour te la vendre une =C3=A2me vulgaire.
    =E2=80=94=E2=80=89Antoine de Saint-Exup=C3=A9ry, Citadelle (1948)
 TEXT;
 
-echo ($quotedPrintable->validate($text) ? 'valid' : 'invalid') . PHP_EOL;
+echo ($quotedPrintable->validateNoExceptions($text) ? 'valid' : 'invalid') . PHP_EOL;
