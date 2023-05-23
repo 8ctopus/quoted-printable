@@ -12,6 +12,8 @@ Check if a text is quoted printable encoded
 
     https://datatracker.ietf.org/doc/html/rfc2045#section-6.7
 
+_Disclaimer_: While I've tried my best to implement the RFC, I cannot guarantee this library is bug free.
+
 ## install
 
     composer require 8ctopus/quoted-printable
