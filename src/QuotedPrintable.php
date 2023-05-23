@@ -25,7 +25,14 @@ namespace Oct8pus;
 
 class QuotedPrintable
 {
+    /**
+     * @var array<string>
+     */
     private array $validInLine;
+
+    /**
+     * @var array<string>
+     */
     private array $validEndOfLine;
 
     public function __construct()
