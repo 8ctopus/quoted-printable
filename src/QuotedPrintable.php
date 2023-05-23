@@ -27,7 +27,6 @@ class QuotedPrintable
 {
     private array $validInLine;
     private array $validEndOfLine;
-    private array $validHex;
 
     public function __construct()
     {
@@ -44,17 +43,6 @@ class QuotedPrintable
 
         $this->validInLine[] = ' ';
         $this->validInLine[] = "\t";
-
-        $this->validHex = [];
-
-        // 0-9 A-F
-        for ($i = 48; $i < 71; ++$i) {
-            if ($i >= 58 && $i < 65) {
-                continue;
-            }
-
-            $this->validHex[] = chr($i);
-        }
     }
 
     /**
