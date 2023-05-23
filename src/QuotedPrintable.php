@@ -62,11 +62,11 @@ class QuotedPrintable
      *
      * @param string $text
      *
-     * @return void
+     * @return self
      *
      * @throws QuotedPrintableException
      */
-    public function validate(string $text) : void
+    public function validate(string $text) : self
     {
         $lines = explode("\n", $text);
 
@@ -109,6 +109,36 @@ class QuotedPrintable
                 }
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * Encode text to quoted printable
+     *
+     * @param  string $text
+     *
+     * @return string
+     */
+    public function encode(string $text) : string
+    {
+        // @codeCoverageIgnoreStart
+        return quoted_printable_encode($text);
+        // @codeCoverageIgnoreEnd
+    }
+
+    /**
+     * Decode quoted printable encoded text
+     *
+     * @param  string $text
+     *
+     * @return string
+     */
+    public function decode(string $text) : string
+    {
+        // @codeCoverageIgnoreStart
+        return quoted_printable_decode($text);
+        // @codeCoverageIgnoreEnd
     }
 
     /**
