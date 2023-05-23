@@ -2,9 +2,7 @@
 
 use Oct8pus\QuotedPrintable;
 
-require_once './vendor/autoload.php';
-
-$quotedPrintable = new QuotedPrintable();
+require_once __DIR__ . '/vendor/autoload.php';
 
 $text = <<<TEXT
 J'interdis aux marchands de vanter trop leurs marchandises. Car ils se font=
@@ -15,4 +13,6 @@ s te fabriquent pour te la vendre une =C3=A2me vulgaire.
    =E2=80=94=E2=80=89Antoine de Saint-Exup=C3=A9ry, Citadelle (1948)
 TEXT;
 
-echo ($quotedPrintable->validateNoExceptions($text) ? 'valid' : 'invalid') . PHP_EOL;
+$quotedPrintable = new QuotedPrintable();
+
+echo ($quotedPrintable->validateNoExceptions($text) ? 'valid quoted printable' : 'invalid quoted printable') . PHP_EOL;
