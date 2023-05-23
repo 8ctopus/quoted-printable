@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 use Oct8pus\QuotedPrintable;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$text = <<<TEXT
+$text = <<<'TEXT'
 J'interdis aux marchands de vanter trop leurs marchandises. Car ils se font=
  vite p=C3=A9dagogues et t'enseignent comme but ce qui n'est par essence qu=
 'un moyen, et te trompant ainsi sur la route =C3=A0 suivre les voil=C3=
@@ -15,4 +17,4 @@ TEXT;
 
 $quotedPrintable = new QuotedPrintable();
 
-echo ($quotedPrintable->validateNoExceptions($text) ? 'valid quoted printable' : 'invalid quoted printable') . PHP_EOL;
+echo($quotedPrintable->validateNoExceptions($text) ? 'valid quoted printable' : 'invalid quoted printable') . PHP_EOL;

@@ -60,7 +60,7 @@ class QuotedPrintable
     /**
      * Check if text is valid quoted printable
      *
-     * @param  string $text
+     * @param string $text
      *
      * @return void
      *
@@ -92,8 +92,8 @@ class QuotedPrintable
             }
 
             // check end of line characters (spaces and tabs are not allowed)
-            if (!in_array($line[$length -1], $this->validEndOfLine, true)) {
-                $char = $line[$length -1];
+            if (!in_array($line[$length - 1], $this->validEndOfLine, true)) {
+                $char = $line[$length - 1];
                 $hex = ord($char);
                 throw new QuotedPrintableException("invalid character '{$char}' {$hex}");
             }
@@ -114,7 +114,7 @@ class QuotedPrintable
     /**
      * Check if text is valid quoted printable
      *
-     * @param  string $text
+     * @param string $text
      *
      * @return bool
      */

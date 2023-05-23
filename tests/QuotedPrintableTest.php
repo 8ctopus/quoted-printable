@@ -24,7 +24,7 @@ final class QuotedPrintableTest extends TestCase
     {
         $quotedPrintable = new QuotedPrintable();
 
-        static::expectNotToPerformAssertions();
+        self::expectNotToPerformAssertions();
 
         $quotedPrintable->validate($text);
     }
@@ -37,8 +37,8 @@ final class QuotedPrintableTest extends TestCase
      */
     public function testInvalid(string $text, string $exception) : void
     {
-        static::expectException(QuotedPrintableException::class);
-        static::expectExceptionMessage($exception);
+        self::expectException(QuotedPrintableException::class);
+        self::expectExceptionMessage($exception);
 
         $quotedPrintable = new QuotedPrintable();
 
@@ -54,7 +54,7 @@ final class QuotedPrintableTest extends TestCase
     {
         $quotedPrintable = new QuotedPrintable();
 
-        static::assertTrue($quotedPrintable->validateNoExceptions($text));
+        self::assertTrue($quotedPrintable->validateNoExceptions($text));
     }
 
     /**
@@ -66,14 +66,14 @@ final class QuotedPrintableTest extends TestCase
     {
         $quotedPrintable = new QuotedPrintable();
 
-        static::assertFalse($quotedPrintable->validateNoExceptions($text));
+        self::assertFalse($quotedPrintable->validateNoExceptions($text));
     }
 
     public static function getValid() : array
     {
         return [
             [
-                'text' => <<<TEXT
+                'text' => <<<'TEXT'
                 J'interdis aux marchands de vanter trop leurs marchandises. Car ils se font=
                  vite p=C3=A9dagogues et t'enseignent comme but ce qui n'est par essence qu=
                 'un moyen, et te trompant ainsi sur la route =C3=A0 suivre les voil=C3=
@@ -82,7 +82,7 @@ final class QuotedPrintableTest extends TestCase
                    =E2=80=94=E2=80=89Antoine de Saint-Exup=C3=A9ry, Citadelle (1948)
                 TEXT,
             ], [
-                'text' => <<<TEXT
+                'text' => <<<'TEXT'
                 Any 8-bit byte value may be encoded with 3 characters: an =
                 =3D followed by two hexadecimal digits (0=E2=80=939 or A=E2=80=93F) represe=
                 nting the byte's numeric value. For example, an ASCII form feed character (=
@@ -96,12 +96,12 @@ final class QuotedPrintableTest extends TestCase
                 al 3D, therefore =3D3D).=0D=0A
                 TEXT
             ], [
-                'text' => <<<TEXT
+                'text' => <<<'TEXT'
                 J'interdis aux marchands de vanter trop leurs marchandises. Car ils se fo=20
                  vite p=C3=A9dagogues et t'enseignent comme but ce qui n'est par essence qu=
                 TEXT,
             ], [
-                'text' => <<<TEXT
+                'text' => <<<'TEXT'
                 Quoted-printable encoding=0AAny 8-bit byte value may be encoded with 3 char=
                 acters: an =3D followed by two hexadecimal digits (0=E2=80=939 or A=
                 =E2=80=93F) representing the byte's numeric value. For example, an ASCII fo=
@@ -133,7 +133,7 @@ final class QuotedPrintableTest extends TestCase
                 d.
 
                 TEXT,
-            ]
+            ],
         ];
     }
 
@@ -142,14 +142,14 @@ final class QuotedPrintableTest extends TestCase
         return [
             [
                 // first line length > 76
-                'text' => <<<TEXT
+                'text' => <<<'TEXT'
                 J'interdis aux marchands de vanter trop leurs marchandises. Car ils se font =
                  vite p=C3=A9dagogues et t'enseignent comme but ce qui n'est par essence qu=
                 TEXT,
                 'exception' => 'line too long - 77',
             ], [
                 // é is forbidden
-                'text' => <<<TEXT
+                'text' => <<<'TEXT'
                 J'interdis aux marchands de vanter trop leurs marchandises. Car ils se font=
                  vite pédagogues et t'enseignent comme but ce qui n'est par essence qu=
                 TEXT,
@@ -170,13 +170,12 @@ final class QuotedPrintableTest extends TestCase
                 'exception' => "invalid character ' '",
             ], [
                 // lowercase hexadecimal sequence
-                'text' => <<<TEXT
+                'text' => <<<'TEXT'
                 J'interdis aux marchands de vanter trop leurs marchandises. Car ils se font=
                  vite p=c3=a9dagogues et t'enseignent comme but ce qui n'est par essence qu=
                 TEXT,
                 'exception' => "invalid hex sequence '=c3'",
-            ]
+            ],
         ];
     }
-
 }
