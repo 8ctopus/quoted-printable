@@ -1,20 +1,17 @@
 <?php
 
 /**
- * Quoted printable encoding
+ * Check quoted printable encoding
  *
- * https://en.wikipedia.org/wiki/Quoted-printable
  * https://datatracker.ietf.org/doc/html/rfc2045#section-6.7
  *
- * used to transfer 8bit data over 7bit
+ * Any 8 bit character can be encoded with 3 characters: = followed 2 hexadecimal digits in uppercase eg. =20
  *
  * All printable ASCII characters from 33 to 126 can be represented by themselves
  *
- * Any 8 bit character can be encoded with 3 characters: = followed 2 hexadecimal digits in uppercase
- *
  * All non printable ASCII characters must be represented in the later variant
  *
- * Tab (0x09) and space (0x20) may be represented by themselves expect if they would appear at the end of the encoded line
+ * Tab (0x09) and space (0x20) must be represented in hexadecimal form if at the end of the encoded line
  * An ASCII equal sign must be represented by =3D
  *
  * Escape character =

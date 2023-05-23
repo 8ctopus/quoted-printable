@@ -68,7 +68,6 @@ final class QuotedPrintableTest extends TestCase
                 =A0 bient=C3=B4t qui te d=C3=A9gradent, car si leur musique est vulgaire il=
                 s te fabriquent pour te la vendre une =C3=A2me vulgaire.
                    =E2=80=94=E2=80=89Antoine de Saint-Exup=C3=A9ry, Citadelle (1948)
-
                 TEXT,
             ], [
                 'text' => <<<TEXT
@@ -84,6 +83,11 @@ final class QuotedPrintableTest extends TestCase
                 nd 126) may be represented by themselves, except =3D (decimal 61, hexadecim=
                 al 3D, therefore =3D3D).=0D=0A
                 TEXT
+            ], [
+                'text' => <<<TEXT
+                J'interdis aux marchands de vanter trop leurs marchandises. Car ils se fo=20
+                 vite p=C3=A9dagogues et t'enseignent comme but ce qui n'est par essence qu=
+                TEXT,
             ]
         ];
     }
