@@ -17,4 +17,4 @@ TEXT;
 
 $quotedPrintable = new QuotedPrintable();
 
-echo($quotedPrintable->validateNoExceptions($text) ? 'valid quoted printable' : 'invalid quoted printable') . PHP_EOL;
+echo ($quotedPrintable->validateNoExceptions($text) ? 'valid quoted printable' : 'invalid quoted printable') . PHP_EOL;

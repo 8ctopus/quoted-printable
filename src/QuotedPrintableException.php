@@ -6,6 +6,4 @@ namespace Oct8pus;
 
 use Exception;
 
-class QuotedPrintableException extends Exception
-{
-}
+class QuotedPrintableException extends Exception {}

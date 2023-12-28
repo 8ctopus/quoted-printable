@@ -111,7 +111,7 @@ class QuotedPrintable
     /**
      * Encode text to quoted printable
      *
-     * @param  string $text
+     * @param string $text
      *
      * @return string
      */
@@ -125,7 +125,7 @@ class QuotedPrintable
     /**
      * Decode quoted printable encoded text
      *
-     * @param  string $text
+     * @param string $text
      *
      * @return string
      */
