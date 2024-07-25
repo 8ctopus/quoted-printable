@@ -1,9 +1,9 @@
 # quoted printable
 
-[![packagist](http://poser.pugx.org/8ctopus/quoted-printable/v)](https://packagist.org/packages/8ctopus/quoted-printable)
-[![downloads](http://poser.pugx.org/8ctopus/quoted-printable/downloads)](https://packagist.org/packages/8ctopus/quoted-printable)
-[![min php version](http://poser.pugx.org/8ctopus/quoted-printable/require/php)](https://packagist.org/packages/8ctopus/quoted-printable)
-[![license](http://poser.pugx.org/8ctopus/quoted-printable/license)](https://packagist.org/packages/8ctopus/quoted-printable)
+[![packagist](https://poser.pugx.org/8ctopus/quoted-printable/v)](https://packagist.org/packages/8ctopus/quoted-printable)
+[![downloads](https://poser.pugx.org/8ctopus/quoted-printable/downloads)](https://packagist.org/packages/8ctopus/quoted-printable)
+[![min php version](https://poser.pugx.org/8ctopus/quoted-printable/require/php)](https://packagist.org/packages/8ctopus/quoted-printable)
+[![license](https://poser.pugx.org/8ctopus/quoted-printable/license)](https://packagist.org/packages/8ctopus/quoted-printable)
 [![tests](https://github.com/8ctopus/quoted-printable/actions/workflows/tests.yml/badge.svg)](https://github.com/8ctopus/quoted-printable/actions/workflows/tests.yml)
 ![code coverage badge](https://raw.githubusercontent.com/8ctopus/quoted-printable/image-data/coverage.svg)
 ![lines of code](https://raw.githubusercontent.com/8ctopus/quoted-printable/image-data/lines.svg)
