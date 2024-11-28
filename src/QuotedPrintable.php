@@ -147,7 +147,7 @@ class QuotedPrintable
     {
         try {
             $this->validate($text);
-        } catch (QuotedPrintableException) {
+        } catch (QuotedPrintableException $exception) {
             return false;
         }
 
