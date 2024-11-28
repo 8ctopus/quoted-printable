@@ -9,6 +9,7 @@
   displayDetailsOnTestsThatTriggerWarnings="true"
   displayDetailsOnTestsThatTriggerErrors="true"
   displayDetailsOnSkippedTests="true"
+  displayDetailsOnPhpunitDeprecations="true"
 >
   <testsuites>
     <testsuite name="test">
