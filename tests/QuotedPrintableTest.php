@@ -18,7 +18,7 @@ final class QuotedPrintableTest extends TestCase
     /**
      * @dataProvider getValid
      *
-     * @param string $test
+     * @param string $text
      */
     public function testOK(string $text) : void
     {
@@ -31,7 +31,7 @@ final class QuotedPrintableTest extends TestCase
     /**
      * @dataProvider getInvalid
      *
-     * @param string $test
+     * @param string $text
      * @param string $exception
      */
     public function testInvalid(string $text, string $exception) : void
@@ -46,7 +46,7 @@ final class QuotedPrintableTest extends TestCase
     /**
      * @dataProvider getValid
      *
-     * @param string $test
+     * @param string $text
      */
     public function testOKNoExceptions(string $text) : void
     {
@@ -58,9 +58,10 @@ final class QuotedPrintableTest extends TestCase
     /**
      * @dataProvider getInvalid
      *
-     * @param string $test
+     * @param string $text
+     * @param string $exception
      */
-    public function testInvalidNoExceptions(string $text) : void
+    public function testInvalidNoExceptions(string $text, string $exception) : void
     {
         $quotedPrintable = new QuotedPrintable();
 
