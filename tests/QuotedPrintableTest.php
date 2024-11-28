@@ -22,11 +22,10 @@ final class QuotedPrintableTest extends TestCase
      */
     public function testOK(string $text) : void
     {
-        $quotedPrintable = new QuotedPrintable();
-
         self::expectNotToPerformAssertions();
 
-        $quotedPrintable->validate($text);
+        (new QuotedPrintable())
+            ->validate($text);
     }
 
     /**
@@ -40,9 +39,8 @@ final class QuotedPrintableTest extends TestCase
         self::expectException(QuotedPrintableException::class);
         self::expectExceptionMessage($exception);
 
-        $quotedPrintable = new QuotedPrintable();
-
-        $quotedPrintable->validate($text);
+        (new QuotedPrintable())
+            ->validate($text);
     }
 
     /**
