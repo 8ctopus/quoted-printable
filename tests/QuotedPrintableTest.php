@@ -55,7 +55,7 @@ final class QuotedPrintableTest extends TestCase
         self::assertTrue($quotedPrintable->validateNoExceptions($text));
     }
 
-    public static function getValid() : array
+    public static function getValid() : iterable
     {
         return [
             [
@@ -136,7 +136,7 @@ final class QuotedPrintableTest extends TestCase
         self::assertFalse($quotedPrintable->validateNoExceptions($text));
     }
 
-    public static function getInvalid() : array
+    public static function getInvalid() : iterable
     {
         return [
             [
