@@ -55,19 +55,6 @@ final class QuotedPrintableTest extends TestCase
         self::assertTrue($quotedPrintable->validateNoExceptions($text));
     }
 
-    /**
-     * @dataProvider getInvalid
-     *
-     * @param string $text
-     * @param string $exception
-     */
-    public function testInvalidNoExceptions(string $text, string $exception) : void
-    {
-        $quotedPrintable = new QuotedPrintable();
-
-        self::assertFalse($quotedPrintable->validateNoExceptions($text));
-    }
-
     public static function getValid() : array
     {
         return [
@@ -93,7 +80,7 @@ final class QuotedPrintableTest extends TestCase
                                 All printable ASCII characters (decimal values between 33 a=
                 nd 126) may be represented by themselves, except =3D (decimal 61, hexadecim=
                 al 3D, therefore =3D3D).=0D=0A
-                TEXT
+                TEXT,
             ], [
                 'text' => <<<'TEXT'
                 J'interdis aux marchands de vanter trop leurs marchandises. Car ils se fo=20
@@ -134,6 +121,19 @@ final class QuotedPrintableTest extends TestCase
                 TEXT,
             ],
         ];
+    }
+
+    /**
+     * @dataProvider getInvalid
+     *
+     * @param string $text
+     * @param string $exception
+     */
+    public function testInvalidNoExceptions(string $text, string $exception) : void
+    {
+        $quotedPrintable = new QuotedPrintable();
+
+        self::assertFalse($quotedPrintable->validateNoExceptions($text));
     }
 
     public static function getInvalid() : array
