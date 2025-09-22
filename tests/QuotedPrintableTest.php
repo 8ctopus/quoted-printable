@@ -6,20 +6,17 @@ namespace Tests;
 
 use Oct8pus\QuotedPrintable;
 use Oct8pus\QuotedPrintableException;
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @internal
- *
- * @covers \Oct8pus\QuotedPrintable
- */
+#[CoversClass(QuotedPrintable::class)]
 final class QuotedPrintableTest extends TestCase
 {
     /**
-     * @dataProvider getValid
-     *
      * @param string $text
      */
+    #[DataProvider('getValid')]
     public function testOK(string $text) : void
     {
         self::expectNotToPerformAssertions();
@@ -29,11 +26,10 @@ final class QuotedPrintableTest extends TestCase
     }
 
     /**
-     * @dataProvider getInvalid
-     *
      * @param string $text
      * @param string $exception
      */
+    #[DataProvider('getInvalid')]
     public function testInvalid(string $text, string $exception) : void
     {
         self::expectException(QuotedPrintableException::class);
@@ -44,10 +40,9 @@ final class QuotedPrintableTest extends TestCase
     }
 
     /**
-     * @dataProvider getValid
-     *
      * @param string $text
      */
+    #[DataProvider('getValid')]
     public function testOKNoExceptions(string $text) : void
     {
         $quotedPrintable = new QuotedPrintable();
@@ -124,11 +119,10 @@ final class QuotedPrintableTest extends TestCase
     }
 
     /**
-     * @dataProvider getInvalid
-     *
      * @param string $text
      * @param string $exception
      */
+    #[DataProvider('getInvalid')]
     public function testInvalidNoExceptions(string $text, string $exception) : void
     {
         $quotedPrintable = new QuotedPrintable();
