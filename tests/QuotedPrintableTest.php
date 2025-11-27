@@ -180,3 +180,4 @@ final class QuotedPrintableTest extends TestCase
         ];
     }
 }
+
